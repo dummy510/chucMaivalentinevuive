@@ -1,0 +1,115 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Oh my baby</title>
+    <meta name="description" content="hihiihiihihih">
+    <meta property="og:description" content="hihihihi">
+   
+    <link rel="stylesheet" href="style.css" tppabs="https://nquoc.github.io/huong/css/style.css" type="text/css" media="screen">
+    <script type="text/javascript" charset="utf-8">
+      function hasClassName(inElement, inClassName)
+      {
+          var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+          return regExp.test(inElement.className);
+      }
+  
+      function addClassName(inElement, inClassName)
+      {
+          if (!hasClassName(inElement, inClassName))
+              inElement.className = [inElement.className, inClassName].join(' ');
+      }
+  
+      function removeClassName(inElement, inClassName)
+      {
+          if (hasClassName(inElement, inClassName)) {
+              var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+              var curClasses = inElement.className;
+              inElement.className = curClasses.replace(regExp, ' ');
+          }
+      }
+  
+      function toggleClassName(inElement, inClassName)
+      {
+          if (hasClassName(inElement, inClassName))
+              removeClassName(inElement, inClassName);
+          else
+              addClassName(inElement, inClassName);
+      }
+  
+      function toggleShape()
+      {
+        var shape = document.getElementById('shape');
+        if (hasClassName(shape, 'cube') || hasClassName(shape, 'autoLoad')) {
+          if (hasClassName(shape, 'cube')) {
+              removeClassName(shape, 'cube');
+          }
+          if (hasClassName(shape, 'autoLoad')) {
+              removeClassName(shape, 'autoLoad');
+          }
+          addClassName(shape, 'ring');
+        } else {
+          removeClassName(shape, 'ring');
+          addClassName(shape, 'cube');
+        }
+        
+        var stage = document.getElementById('stage');
+        if (hasClassName(shape, 'ring'))
+          stage.style.webkitTransform = 'translateZ(-200px)';
+        else
+          stage.style.webkitTransform = '';
+      }
+     
+      var count = 0;
+      var timer;
+      function timedCount() {
+          if(count >= 8) {
+              count = 0;
+              autoLoad();
+          } else {
+              count = count + 1;
+          }
+          timer = setTimeout(timedCount, 1000);
+      }
+      function autoLoad() {
+          var shapeTest = document.getElementById('shape');
+          if (hasClassName(shapeTest, 'cube')) {
+              removeClassName(shapeTest, 'cube');
+              addClassName(shapeTest, 'autoLoad');
+          } else {
+              toggleShape();
+          }
+      }
+    </script>
+  </head>
+  <body onload="timedCount()">
+  	
+  
+    
+    <div id="container">
+      
+      <div id="stage" style="">
+         
+        <div id="shape" class=" backfaces loop autoLoad">
+         
+          <div class="plane one"></div>
+          <div class="plane two"></div>
+          <div class="plane three"></div>
+          <div class="plane four"></div>
+          <div class="plane five"></div>
+          <div class="plane six"></div>
+          <div class="plane seven"></div>
+          <div class="plane eight"></div>
+          <div class="plane nine"></div>
+          <div class="plane ten"></div>
+          <div class="plane eleven"></div>
+          <div class="plane twelve"></div>
+           <div class="audio">   
+            
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--// https://www.facebook.com/nhquyet //-->
+  
+  
+  </body></html>
